@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using SettingsApplicationNewMaui.Extensions;
 using SettingsApplicationNewMaui.Interfaces;
 using SettingsApplicationNewMaui.Localization;
+using SettingsApplicationNewMaui.Services;
 using SettingsApplicationNewMaui.Settings;
 using SettingsApplicationNewMaui.ViewModels;
 using SettingsApplicationNewMaui.Views;
@@ -51,8 +52,12 @@ namespace SettingsApplicationNewMaui
             // Register ApplicationSettings as a singleton service
             services.AddSingleton<IApplicationSettings>(appSettings);
 
+            services.AddSingleton<ShellViewModel>();
+            services.AddSingleton<AppShell>();
+
             // Interface to implementation
             services.AddSingleton<IUserSettingsService, UserSettingsService>();
+            services.AddSingleton<IAuthService, AuthService>();
 
             // ioc register view models and veiws 
             services.AddSingleton<HomeViewModel>();
@@ -60,6 +65,9 @@ namespace SettingsApplicationNewMaui
             services.AddView<HomeView, HomeViewModel>();
             services.AddView<SettingsView, SettingsViewModel>();
             services.AddView<ContactView, ContactViewModel>();
+            services.AddView<ProfileView, ProfileViewModel>();
+            services.AddView<LoginView, LoginViewModel>();
+            services.AddView<LoadingView, LoginViewModel>();
            
 
 #if DEBUG

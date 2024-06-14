@@ -1,4 +1,5 @@
-﻿using SettingsApplicationNewMaui.Interfaces;
+﻿using SettingsApplicationNewMaui.BaseClasses;
+using SettingsApplicationNewMaui.Interfaces;
 using SettingsApplicationNewMaui.Localization;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Input;
 
 namespace SettingsApplicationNewMaui.ViewModels
 {
-    public class HomeViewModel : INotifyPropertyChanged
+    public class HomeViewModel : ViewModelBase
     {
         private string _greeting;
         private string _selectedLanguage;
@@ -24,12 +25,6 @@ namespace SettingsApplicationNewMaui.ViewModels
         {
             _appSettings = appSettings;
             var test = _appSettings.LanguageCultureCode;
-        }
-      
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

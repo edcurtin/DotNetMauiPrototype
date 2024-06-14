@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SettingsApplicationNewMaui.ViewModels
 {
-    public class ContactViewModel : ViewModelBase
+    public class ProfileViewModel : ViewModelBase
     {
     }
 }
