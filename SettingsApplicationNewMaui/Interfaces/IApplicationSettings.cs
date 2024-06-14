@@ -8,7 +8,8 @@ namespace SettingsApplicationNewMaui.Interfaces
 {
     public interface IApplicationSettings
     {
-        string Setting1 { get; set; }
-        string Setting2 { get; set; }
+        string LanguageCultureCode { get; set; }
+
+        void UpdateLanguageCultureCode(string languageCultureCode);
     }
 }

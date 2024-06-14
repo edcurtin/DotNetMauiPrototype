@@ -33,7 +33,7 @@ namespace SettingsApplicationNewMaui
 
             // Bind the AppSettings section to the AppSettings class
             var appSettings = new ApplicationSettings();
-            builder.Configuration.GetSection("AppSettings").Bind(appSettings);
+            builder.Configuration.GetSection("ApplicationSettings").Bind(appSettings);
 
             // Register ApplicationSettings as a singleton service
             services.AddSingleton<IApplicationSettings>(appSettings);
@@ -44,12 +44,17 @@ namespace SettingsApplicationNewMaui
             services.AddView<HomeView, HomeViewModel>();
             services.AddView<SettingsView, SettingsViewModel>();
 
-            // set startup culture code to english
-            LocalizationService.Instance.SetCulture(new CultureInfo("en"));
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-            return builder.Build();
+            var mauiApp = builder.Build();
+            
+            var settings = mauiApp.Services.GetRequiredService<IApplicationSettings>();
+
+            // set startup culture code to english
+            LocalizationService.Instance.SetCulture(new CultureInfo(settings.LanguageCultureCode));
+
+            return mauiApp;
         }
     }
 }

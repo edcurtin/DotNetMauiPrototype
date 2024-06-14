@@ -9,7 +9,11 @@ namespace SettingsApplicationNewMaui.Settings
 {
     public class ApplicationSettings : IApplicationSettings
     {
-        public string Setting1 { get; set; }
-        public string Setting2 { get; set; }
+        public string LanguageCultureCode { get; set; }
+
+        public void UpdateLanguageCultureCode(string languageCultureCode)
+        {
+           LanguageCultureCode = languageCultureCode;
+        }
     }
 }

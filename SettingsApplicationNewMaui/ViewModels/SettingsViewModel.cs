@@ -19,8 +19,9 @@ namespace SettingsApplicationNewMaui.ViewModels
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public SettingsViewModel()
+        public SettingsViewModel(IApplicationSettings appSettings)
         {
+            _appSettings = appSettings;
             ChangeLanguageCommand = new Command(ChangeLanguage);
             AvailableLanguages = new List<string> { "English", "Español" };
         }
@@ -43,6 +44,7 @@ namespace SettingsApplicationNewMaui.ViewModels
         private void ChangeLanguage()
         {
             var cultureCode = SelectedLanguage == "English" ? "en" : "es";
+            _appSettings.UpdateLanguageCultureCode(cultureCode);
             LocalizationService.Instance.SetCulture(new CultureInfo(cultureCode));
         }
 

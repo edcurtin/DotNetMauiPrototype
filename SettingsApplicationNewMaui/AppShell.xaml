@@ -7,7 +7,6 @@
     xmlns:resources="clr-namespace:SettingsApplicationNewMaui.Localization"
     Shell.FlyoutBehavior="Flyout"
     Title="{resources:Translate Key=AppName}">
-
     <FlyoutItem 
         Title="{resources:Translate Key=HomePageMenuTitle}" 
         Route="Home"

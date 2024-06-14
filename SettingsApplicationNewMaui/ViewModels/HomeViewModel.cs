@@ -23,21 +23,7 @@ namespace SettingsApplicationNewMaui.ViewModels
         public HomeViewModel(IApplicationSettings appSettings)
         {
             _appSettings = appSettings;
-            Greeting = _appSettings.Setting1;
-         
-        }
-
-        public string Greeting
-        {
-            get => _greeting;
-            set
-            {
-                if (_greeting != value)
-                {
-                    _greeting = value;
-                    OnPropertyChanged();
-                }
-            }
+            var test = _appSettings.LanguageCultureCode;
         }
       
 
