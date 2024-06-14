@@ -8,6 +8,7 @@ using SettingsApplicationNewMaui.Settings;
 using SettingsApplicationNewMaui.ViewModels;
 using SettingsApplicationNewMaui.Views;
 using System.Globalization;
+using System.Reflection;
 
 namespace SettingsApplicationNewMaui
 {
@@ -28,9 +29,20 @@ namespace SettingsApplicationNewMaui
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            
-            // Add this line to set up configuration
-            builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            // Load appsettings.json
+            //using var appsettingsStream = Assembly
+            //    .GetExecutingAssembly()
+            //    .GetManifestResourceStream("SettingsApplicationNewMaui.appsettings.json");
+
+            var a = Assembly.GetExecutingAssembly();
+            using var stream = a.GetManifestResourceStream("SettingsApplicationNewMaui.appsettings.json");
+            var config = new ConfigurationBuilder()
+                .AddJsonStream(stream)
+                .Build();
+
+            // Add configuration to the builder
+            builder.Configuration.AddConfiguration(config);
 
             // Bind the AppSettings section to the AppSettings class
             var appSettings = new ApplicationSettings();
