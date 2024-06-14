@@ -8,7 +8,6 @@ namespace SettingsApplicationNewMaui
         public App()
         {
             InitializeComponent();
-            LocalizationService.Instance.SetCulture(new CultureInfo("es"));
             MainPage = new AppShell();
         }
     }
