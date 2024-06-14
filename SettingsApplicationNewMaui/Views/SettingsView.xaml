@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SettingsApplicationNewMaui.Views.SettingsView"
+             xmlns:resources="clr-namespace:SettingsApplicationNewMaui.Localization"
+             xmlns:viewModels="clr-namespace:SettingsApplicationNewMaui.ViewModels"
+             xmlns:views="clr-namespace:SettingsApplicationNewMaui.Views"
+             x:DataType="viewModels:SettingsViewModel"
+             xmlns:local="clr-namespace:SettingsApplicationNewMaui.ViewModels" 
+             Title="{resources:Translate Key=SettingsPageTitle}">
+
+    <Grid Margin="20"
+          HorizontalOptions="Fill"
+          VerticalOptions="StartAndExpand" 
+          ColumnDefinitions="Auto, *, Auto, *"
+          RowDefinitions="Auto, Auto">
+
+        <!-- First row -->
+            <!--<Label Text="Setting 1:" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
+            <Entry Text="{Binding Setting1}" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" />
+            <Label Text="Setting 2:" Grid.Row="0" Grid.Column="2" VerticalOptions="Center" />
+            <Entry Text="{Binding Setting2}" Grid.Row="0" Grid.Column="3" VerticalOptions="Center" />-->
+
+            <!-- Second row -->
+            <Label 
+                Text="{resources:Translate Key=SelectLanguage}" 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                VerticalOptions="Center" />
+            <Picker 
+                ItemsSource="{Binding AvailableLanguages}" 
+                SelectedItem="{Binding SelectedLanguage}" 
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center" />
+
+        <Label 
+                Text="{resources:Translate Key=SelectLanguage}" 
+                Grid.Row="1" 
+                Grid.Column="2" 
+                VerticalOptions="Center" />
+        <Picker 
+                ItemsSource="{Binding AvailableLanguages}" 
+                SelectedItem="{Binding SelectedLanguage}" 
+                Grid.Row="1"
+                Grid.Column="3"
+                VerticalOptions="Center" />
+    </Grid>
+     
+</ContentPage>

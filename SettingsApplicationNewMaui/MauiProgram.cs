@@ -37,9 +37,14 @@ namespace SettingsApplicationNewMaui
 
             // Register ApplicationSettings as a singleton service
             services.AddSingleton<IApplicationSettings>(appSettings);
-            services.AddSingleton<MainViewModel>();
-            services.AddView<MainView, MainViewModel>();
+            
+            // ioc register view models and veiws 
+            services.AddSingleton<HomeViewModel>();
+            services.AddSingleton<SettingsViewModel>();
+            services.AddView<HomeView, HomeViewModel>();
+            services.AddView<SettingsView, SettingsViewModel>();
 
+            // set startup culture code to english
             LocalizationService.Instance.SetCulture(new CultureInfo("en"));
 #if DEBUG
             builder.Logging.AddDebug();

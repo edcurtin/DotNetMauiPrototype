@@ -3,14 +3,21 @@
     x:Class="SettingsApplicationNewMaui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:SettingsApplicationNewMaui.Views"
+    xmlns:views="clr-namespace:SettingsApplicationNewMaui.Views"
     xmlns:resources="clr-namespace:SettingsApplicationNewMaui.Localization"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="{resources:Translate Key=AppName}">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainView}"
-        Route="MainPage" />
-
+    <FlyoutItem 
+        Title="{resources:Translate Key=HomePageMenuTitle}" 
+        Route="Home"
+        Icon="icon_home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:HomeView}" />
+    </FlyoutItem>
+    <FlyoutItem 
+        Title="{resources:Translate Key=SettingsPageMenuTitle}"
+        Route="Settings"
+        Icon="icon_settings.png">
+        <ShellContent ContentTemplate="{DataTemplate views:SettingsView}" />
+    </FlyoutItem>
 </Shell>

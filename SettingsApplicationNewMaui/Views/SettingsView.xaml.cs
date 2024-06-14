@@ -1,8 +1,8 @@
 namespace SettingsApplicationNewMaui.Views;
 
-public partial class MainView : ContentPage
+public partial class SettingsView : ContentPage
 {
-	public MainView()
+	public SettingsView()
 	{
 		InitializeComponent();
 	}

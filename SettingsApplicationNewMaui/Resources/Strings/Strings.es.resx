@@ -126,4 +126,16 @@
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select Language spanish</value>
   </data>
+  <data name="SettingsPageMenuTitle" xml:space="preserve">
+    <value>Ajustes</value>
+  </data>
+  <data name="HomePageMenuTitle" xml:space="preserve">
+    <value>Home spanish</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>Home Page spanish</value>
+  </data>
+  <data name="SettingsPageTitle" xml:space="preserve">
+    <value>Settings Page spanish</value>
+  </data>
 </root>

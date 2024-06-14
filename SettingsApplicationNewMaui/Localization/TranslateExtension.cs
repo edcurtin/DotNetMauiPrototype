@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SettingsApplicationNewMaui.Localization
 {
+    [ContentProperty(nameof(Key))]
     public class TranslateExtension : IMarkupExtension<BindingBase>
     {
         public string Key { get; set; }
