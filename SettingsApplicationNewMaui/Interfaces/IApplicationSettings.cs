@@ -9,7 +9,5 @@ namespace SettingsApplicationNewMaui.Interfaces
     public interface IApplicationSettings
     {
         string LanguageCultureCode { get; set; }
-
-        void UpdateLanguageCultureCode(string languageCultureCode);
     }
 }

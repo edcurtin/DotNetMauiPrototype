@@ -44,7 +44,7 @@ namespace SettingsApplicationNewMaui.ViewModels
         private void ChangeLanguage()
         {
             var cultureCode = SelectedLanguage == "English" ? "en" : "es";
-            _appSettings.UpdateLanguageCultureCode(cultureCode);
+            _appSettings.LanguageCultureCode = cultureCode;
             LocalizationService.Instance.SetCulture(new CultureInfo(cultureCode));
         }
 
