@@ -1,0 +1,19 @@
+﻿	<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+		<Product Id="*" Name="MyApp" Language="1033" Version="1.0.0.0" Manufacturer="YourCompany" UpgradeCode="e7b73e24-7a28-4a2c-8dc9-501c3f692cc9">
+			<Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+			<!-- Define components -->
+			<Directory Id="TARGETDIR" Name="SourceDir">
+				<Directory Id="ProgramFilesFolder">
+					<Directory Id="INSTALLFOLDER" Name="MyApp" />
+				</Directory>
+			</Directory>
+
+			<!-- Define files -->
+			<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+				<Component Id="MainExecutable" Guid="*">
+					<File Id="MyAppEXE" Source="..\SettingsApplicationNewMaui\bin\Release\net6.0-windows\MyApp.exe" KeyPath="yes" />
+				</Component>
+			</ComponentGroup>
+		</Product>
+</Wix>
