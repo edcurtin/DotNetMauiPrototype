@@ -1,5 +1,6 @@
-﻿using SettingsApplicationNewMaui.Localization;
-using System.Globalization;
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using SettingsApplicationNewMaui.ViewModels;
 
 namespace SettingsApplicationNewMaui
 {
@@ -8,7 +9,23 @@ namespace SettingsApplicationNewMaui
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
+
+            var services = new ServiceCollection();
+
+            // Register services
+            services.AddSingleton<ShellViewModel>();
+
+            // Register your Shell
+            services.AddSingleton<AppShell>();
+
+            // Build the service provider
+            var serviceProvider = services.BuildServiceProvider();
+
+            // Resolve the Shell
+            var shell = serviceProvider.GetRequiredService<AppShell>();
+
+            // Set the main page with resolved Shell
+            MainPage = shell;
         }
     }
 }

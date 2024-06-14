@@ -70,6 +70,24 @@ namespace SettingsApplicationNewMaui.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Go to Contact.
+        /// </summary>
+        internal static string ContactPageButton {
+            get {
+                return ResourceManager.GetString("ContactPageButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        internal static string ContactPageTitle {
+            get {
+                return ResourceManager.GetString("ContactPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello, World!.
         /// </summary>
         internal static string Greeting {
@@ -102,6 +120,15 @@ namespace SettingsApplicationNewMaui.Resources.Strings {
         internal static string SelectLanguage {
             get {
                 return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Theme.
+        /// </summary>
+        internal static string SelectTheme {
+            get {
+                return ResourceManager.GetString("SelectTheme", resourceCulture);
             }
         }
         

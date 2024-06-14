@@ -35,16 +35,22 @@
                 VerticalOptions="Center" />
 
         <Label 
-                Text="{resources:Translate Key=SelectLanguage}" 
+                Text="{resources:Translate Key=SelectTheme}" 
                 Grid.Row="1" 
                 Grid.Column="2" 
                 VerticalOptions="Center" />
         <Picker 
-                ItemsSource="{Binding AvailableLanguages}" 
-                SelectedItem="{Binding SelectedLanguage}" 
+                SelectedItem="{Binding SelectedTheme}" 
                 Grid.Row="1"
                 Grid.Column="3"
-                VerticalOptions="Center" />
+                VerticalOptions="Center">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Light</x:String>
+                    <x:String>Dark</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
     </Grid>
      
 </ContentPage>

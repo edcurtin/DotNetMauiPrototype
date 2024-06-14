@@ -138,4 +138,13 @@
   <data name="SettingsPageTitle" xml:space="preserve">
     <value>Settings Page</value>
   </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Select Theme</value>
+  </data>
+  <data name="ContactPageButton" xml:space="preserve">
+    <value>Go to Contact</value>
+  </data>
+  <data name="ContactPageTitle" xml:space="preserve">
+    <value>Contact</value>
+  </data>
 </root>

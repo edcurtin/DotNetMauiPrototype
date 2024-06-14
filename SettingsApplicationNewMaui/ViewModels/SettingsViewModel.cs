@@ -1,13 +1,8 @@
 ﻿using SettingsApplicationNewMaui.Interfaces;
 using SettingsApplicationNewMaui.Localization;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace SettingsApplicationNewMaui.ViewModels
@@ -16,12 +11,14 @@ namespace SettingsApplicationNewMaui.ViewModels
     {
         private string _selectedLanguage;
         private IApplicationSettings _appSettings;
+        private IUserSettingsService _userSettingsService;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public SettingsViewModel(IApplicationSettings appSettings)
+        public SettingsViewModel(IApplicationSettings appSettings, IUserSettingsService userSettings)
         {
             _appSettings = appSettings;
+            _userSettingsService = userSettings;
             ChangeLanguageCommand = new Command(ChangeLanguage);
             AvailableLanguages = new List<string> { "English", "Español" };
         }
@@ -50,6 +47,22 @@ namespace SettingsApplicationNewMaui.ViewModels
 
 
         public ICommand ChangeLanguageCommand { get; }
+
+
+        private string _selectedTheme;
+        public string SelectedTheme
+        {
+            get => _selectedTheme;
+            set
+            {
+                if (_selectedTheme != value)
+                {
+                    _selectedTheme = value;
+                    OnPropertyChanged(); // Notify UI of property change
+                }
+            }
+        }
+
 
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

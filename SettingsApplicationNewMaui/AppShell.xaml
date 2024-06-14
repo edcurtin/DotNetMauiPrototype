@@ -4,9 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:SettingsApplicationNewMaui.Views"
+    xmlns:viewModels="clr-namespace:SettingsApplicationNewMaui.ViewModels"
     xmlns:resources="clr-namespace:SettingsApplicationNewMaui.Localization"
     Shell.FlyoutBehavior="Flyout"
+    x:DataType="viewModels:ShellViewModel"
     Title="{resources:Translate Key=AppName}">
+
     <FlyoutItem 
         Title="{resources:Translate Key=HomePageMenuTitle}" 
         Route="Home"
@@ -19,4 +22,7 @@
         Icon="icon_settings.png">
         <ShellContent ContentTemplate="{DataTemplate views:SettingsView}" />
     </FlyoutItem>
+    <Shell.FlyoutFooter>
+        <Button Text="{resources:Translate Key=ContactPageButton}" Command="{Binding NavigateToContactPage}"></Button>
+    </Shell.FlyoutFooter>
 </Shell>
