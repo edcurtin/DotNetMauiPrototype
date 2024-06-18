@@ -20,9 +20,14 @@ namespace SettingsApplicationNewMaui.ViewModels
 
         public ShellViewModel()
         {
+            foreach (var route in Routes.RouteTypeMap)
+            {
+                Routing.RegisterRoute(route.Key, route.Value);
+            }
+
             NavigateToContactPage = new Command(async () =>
             {
-                await Shell.Current.GoToAsync(nameof(ContactView));
+                await Shell.Current.GoToAsync(Routes.ContactView);
             });
         }
 

@@ -16,6 +16,7 @@ namespace SettingsApplicationNewMaui
     /// <summary>
     /// MauiProgram
     /// </summary>
+    [epj.RouteGenerator.AutoRoutes("View")]
     public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()
