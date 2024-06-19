@@ -147,4 +147,7 @@
   <data name="ContactPageTitle" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="LoginPageButton" xml:space="preserve">
+    <value>Login Page</value>
+  </data>
 </root>

@@ -115,6 +115,15 @@ namespace SettingsApplicationNewMaui.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login Page.
+        /// </summary>
+        internal static string LoginPageButton {
+            get {
+                return ResourceManager.GetString("LoginPageButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Language.
         /// </summary>
         internal static string SelectLanguage {

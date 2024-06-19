@@ -1,8 +1,10 @@
 ﻿using SettingsApplicationNewMaui.BaseClasses;
+using SettingsApplicationNewMaui.Interfaces;
 using SettingsApplicationNewMaui.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -24,8 +26,15 @@ namespace SettingsApplicationNewMaui.ViewModels
                 {
                     username = value;
                     OnPropertyChanged();
+                    UpdateLoginCommand();
+
                 }
             }
+        }
+
+        private void UpdateLoginCommand()
+        {
+            ((AsyncCommand)LoginCommand).RaiseCanExecuteChanged();
         }
 
         public string Password
@@ -37,6 +46,7 @@ namespace SettingsApplicationNewMaui.ViewModels
                 {
                     password = value;
                     OnPropertyChanged();
+                    UpdateLoginCommand();
                 }
             }
         }
@@ -56,26 +66,27 @@ namespace SettingsApplicationNewMaui.ViewModels
 
         public ICommand LoginCommand { get; }
 
-        public LoginViewModel()
+        private IAuthService _authService;
+
+        public LoginViewModel(IAuthService authService)
         {
-            LoginCommand = new Command(OnLogin);
-            Username = "Ed was here";
-            OnPropertyChanged(nameof(Username));
+            LoginCommand = new AsyncCommand(OnLogin, CanLogin);
+            _authService = authService;
         }
 
-        private async void OnLogin()
+        private bool CanLogin()
         {
-            // Replace with your authentication logic
-            if (Username == "admin" && Password == "password")
+            if(!string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password)) 
             {
-                ErrorMessage = string.Empty;
-                // Navigate to the next page or do something else
-                await Shell.Current.GoToAsync(nameof(HomeView));
+                return true;
             }
-            else
-            {
-                ErrorMessage = "Invalid username or password.";
-            }
+            return false;
+        }
+
+        private async Task OnLogin()
+        {
+           var result = await _authService.AuthenticateAsync(Username, Password);
+          
         }
     }
 }

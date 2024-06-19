@@ -12,11 +12,11 @@ namespace SettingsApplicationNewMaui.ViewModels
     public class ShellViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        private const string ContactView = nameof(ContactView);
 
 
         public ICommand NavigateToContactPage { get; }
 
+        public ICommand NavigateToLoginPage { get; }
 
         public ShellViewModel()
         {
@@ -28,6 +28,11 @@ namespace SettingsApplicationNewMaui.ViewModels
             NavigateToContactPage = new Command(async () =>
             {
                 await Shell.Current.GoToAsync(Routes.ContactView);
+            });
+
+            NavigateToLoginPage = new Command(async () =>
+            {
+                await Shell.Current.GoToAsync(Routes.LoginView);
             });
         }
 

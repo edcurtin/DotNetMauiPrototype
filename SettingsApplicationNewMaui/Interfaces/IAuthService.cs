@@ -8,6 +8,6 @@ namespace SettingsApplicationNewMaui.Interfaces
 {
     public interface IAuthService
     {
-        public Task<bool> IsAuthenticated();
+        public Task<string> AuthenticateAsync(string username, string password);
     }
 }
